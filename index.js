@@ -1,5 +1,13 @@
-const Heatshrink = require('./build/Release/heatshrink');
+const { Encoder, Decoder } = require('./build/Release/heatshrink');
 
-console.log(Heatshrink);
+console.log('Encoder =', Encoder);
+console.log('Decoder =', Decoder);
+let encoder = new Encoder({ windowSize: 8, lookaheadSize: 4 });
 
-Heatshrink.doSomethingUseful();
+encoder.close();
+console.log('encoder instance =', encoder);
+//encoder.close();
+
+//let decoder = new Decoder({ windowSize: 8, lookaheadSize: 4 });
+
+//decoder.close();
