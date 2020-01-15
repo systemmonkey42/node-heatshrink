@@ -3,7 +3,8 @@
     {
       "target_name": "heatshrink_native",
       "sources": ["./src/addon.c", "./src/addon_node.c", "./src/lib/heatshrink_encoder.c", "./src/lib/heatshrink_decoder.c"],
-      "cflags!": ["-g", "-fno-exceptions"],
+      "cflags": ["-g", "-Wno-implicit-fallthrough"],
+      "cflags!": ["-g", "-fno-exceptions" ],
       "cflags_cc!": ["-g", "-fno-exceptions"],
       "include_dirs": ["src", "lib", "src/lib", "<!@(node -p \"require('node-addon-api').include\")"],
       "dependencies": ["<!(node -p \"require('node-addon-api').gyp\")"]

@@ -9,22 +9,18 @@ declare interface decoderOpts {
 	lookaheadSize: number;
 };
 
-export class Encoder {
+export class HSEncoder {
 	constructor(opts: encoderOpts);
-	on(event: 'data', cb: (arg0: Buffer) => void):this;
-	test();
-	read(): Buffer;
-	write(data: Buffer);
-	flush();
-	close();
+	sink(arg0: Buffer): number;
+	poll();
+	end();
 }
 
-export class Decoder {
+export class HSDecoder {
 	constructor(opts: decoderOpts);
-	read(): Buffer;
-	write(data: Buffer);
-	flush();
-	close();
+	sink(arg0: Buffer): number;
+	poll();
+	end();
 }
 
-export = { Encoder, Decoder };
+export = { HSEncoder, HSDecoder };

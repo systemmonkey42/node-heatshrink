@@ -2,10 +2,11 @@
   "name": "heatshrink",
   "version": "1.0.0",
   "description": "",
-  "main": "./build/Release/heatshrink.node",
+  "main": "./build/Release/heatshrink.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "node-gyp rebuild"
+    "install": "node-gyp rebuild",
+    "dev": "nodemon -e js,c,h -i build --exec \"node-gyp --loglevel silent rebuild && node ./index.js\""
   },
   "keywords": [],
   "author": "",

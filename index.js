@@ -1,18 +1,36 @@
 const { Encoder, Decoder } = require('./build/Release/heatshrink');
 
-console.log('Encoder =', Encoder);
-console.log('Decoder =', Decoder);
 let encoder = new Encoder({ windowSize: 8, lookaheadSize: 4 });
+let decoder = new Decoder({ windowSize: 8, lookaheadSize: 4 });
+
+let raw = '';
 
 encoder.on('data', buf => {
-    console.log('buf = ', buf);
+    decoder.write(buf);
 });
 
-encoder.test();
-encoder.close();
-console.log('encoder instance =', encoder);
-//encoder.close();
+encoder.on('end', () => {
+    decoder.end();
+});
 
-//let decoder = new Decoder({ windowSize: 8, lookaheadSize: 4 });
+let body = '';
 
-//decoder.close();
+decoder.on('data', buf => {
+    body += buf.toString();
+});
+
+decoder.on('end', () => {
+    console.log('Decoding complete.');
+    if (body !== raw) {
+        console.log(' - result does not match');
+    } else {
+        console.log(' - result matches');
+    }
+});
+
+let msg = '1234567890';
+for (let i = 0; i < 500; i++) {
+    raw += msg;
+    encoder.write(msg);
+}
+encoder.end();
