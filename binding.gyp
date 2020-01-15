@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "heatshrink",
+      "target_name": "heatshrink_native",
       "sources": ["./src/addon.c", "./src/addon_node.c", "./src/lib/heatshrink_encoder.c", "./src/lib/heatshrink_decoder.c"],
       "cflags!": ["-g", "-fno-exceptions"],
       "cflags_cc!": ["-g", "-fno-exceptions"],
@@ -14,7 +14,7 @@
       "copies": [
         {
           "destination": "<(module_root_dir)/build/Release",
-          "files": ["./src/heatshrink.d.ts"]
+          "files": ["./src/heatshrink.js", "./src/heatshrink.d.ts", "./src/heatshrink_native.d.ts" ]
         }
       ]
     }

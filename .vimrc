@@ -92,4 +92,6 @@ let g:c_comment_strings = 1
 
 unlet s:clang_opts
 
+let g:ale_fix_on_save=1
+
 nmap <Leader>? <Plug>(ale_detail)
