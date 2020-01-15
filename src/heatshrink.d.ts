@@ -29,7 +29,7 @@ export class Decoder extends stream.Transform {
 	on(event: 'readable', cb: ()=>void):this;
 	on(event: 'end', cb: ()=>void):this;
 	read(): Buffer;
-	write(data: Buffer);
+	write(data: string|Buffer);
 	flush();
 	close();
 }
