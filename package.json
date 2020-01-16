@@ -1,7 +1,7 @@
 {
-  "name": "heatshrink",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@fsiot/heatshrink",
+  "version": "0.1.0",
+  "description": "Nodejs module wrapper for [Heatshrink][1]",
   "main": "./build/Release/heatshrink.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "dev": "nodemon -e js,c,h -i build --exec \"node-gyp --loglevel silent rebuild && node ./index.js\""
   },
   "keywords": [],
-  "author": "",
+  "author": "David le Blanc",
   "license": "ISC",
   "dependencies": {
     "node-addon-api": "latest"
@@ -22,5 +22,14 @@
     "prettier": "^1.19.1",
     "ts-server": "0.0.15",
     "typescript": "^3.7.4"
-  }
+  },
+  "gypfile": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/systemmonkey42/node-heatshrink.git"
+  },
+  "bugs": {
+    "url": "https://github.com/systemmonkey42/node-heatshrink/issues"
+  },
+  "homepage": "https://github.com/systemmonkey42/node-heatshrink#readme"
 }

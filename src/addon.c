@@ -22,16 +22,10 @@
   } while (0)
 
 static void encoder_instance_finalizer(napi_env env, void *data, void *hint) {
-  printf("Called encoder finalizer..\n");
-
-  printf("Instance data = %p\n", (char *)data);
   heatshrink_encoder_free((heatshrink_encoder *)data);
 }
 
 static void decoder_instance_finalizer(napi_env env, void *data, void *hint) {
-  printf("Called decoder finalizer..\n");
-
-  printf("Instance data = %p\n", (char *)data);
   heatshrink_decoder_free((heatshrink_decoder *)data);
 }
 
@@ -199,7 +193,6 @@ static napi_value decoder_method_sink(napi_env env, napi_callback_info info) {
   NAPI_CALL(env, napi_typeof(env, argv[0], &rtype));
 
   if (rtype != napi_object) {
-    printf("DECODER - Not an Object. Returning error\n");
     NAPI_CALL(env, napi_create_int32(env, -1, &result));
     return result;
   }
